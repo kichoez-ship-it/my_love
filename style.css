@@ -1,0 +1,221 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY - FONDO SAN VALENTÍN */
+body {
+    background: linear-gradient(135deg, #ff4d6d, #ff758f, #ffb3c6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* BOTÓN DE MÚSICA */
+#musicBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+}
+
+/* CONTENEDOR DE CORAZONES */
+.hearts {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* CORAZONES */
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.65);
+    animation: floatUp linear infinite;
+}
+
+/* ANIMACIÓN CORAZONES */
+@keyframes floatUp {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* TEXTO NEÓN */
+.neon-love {
+    position: absolute;
+    right: 20px;
+    bottom: 50%;
+    transform: translateY(50%);
+    font-size: 42px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow:
+        0 0 5px #ff4d6d,
+        0 0 10px #ff4d6d,
+        0 0 20px #ff1e56,
+        0 0 40px #ff1e56;
+    animation: neonPulse 2s infinite alternate;
+    z-index: 1;
+}
+
+/* ANIMACIÓN NEÓN */
+@keyframes neonPulse {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* CARRUSEL */
+.carousel {
+    width: 90vw;
+    max-width: 380px;
+    height: 75vh;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+    background: #000;
+    z-index: 2;
+}
+
+/* SLIDES */
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* SLIDE ACTIVO */
+.slide.active {
+    opacity: 1;
+}
+
+/* IMÁGENES Y VIDEO */
+.slide img,
+.slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEXTO SOBRE IMÁGENES */
+.slide p {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    right: 20px;
+    padding: 14px 18px;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.2)
+    );
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.4;
+    border-radius: 14px;
+    text-align: center;
+}
+
+/* ANIMACIÓN DEL TEXTO */
+.slide.active p {
+    animation: fadeUp 1.2s ease;
+}
+
+/* KEYFRAMES TEXTO */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE PARA CELULARES PEQUEÑOS */
+@media (max-width: 360px) {
+    .carousel {
+        height: 78vh;
+    }
+
+    .slide p {
+        font-size: 14px;
+    }
+
+    .neon-love {
+        font-size: 34px;
+        right: 10px;
+    }
+}
+.neon-text {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    
+    font-family: 'Pacifico', cursive;
+    font-size: 3.2rem;
+    color: #6ddcff;
+
+    text-shadow:
+        0 0 5px #6ddcff,
+        0 0 15px #6ddcff,
+        0 0 35px #3bbcff,
+        0 0 60px #1aa3ff;
+
+    padding: 14px 22px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    backdrop-filter: blur(5px);
+
+    z-index: 999;
+    opacity: 0.92;
+}
+@media (max-width: 600px) {
+    .neon-text {
+        right: 25px;
+        font-size: 2.2rem;
+        padding: 10px 16px;
+    }
+}
+
+
+
+/* ✨ Parpadeo suave tipo neón */
+@keyframes neonFlicker {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.85;
+    }
+}
+
